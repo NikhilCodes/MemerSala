@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login-styles.css') }}">
+        <title>MemerSala - Login</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    </head>
+
+    <body>
+        <div id="login-info-container">
+            <intro>Account Login</intro>
+            <form action="" method="post">
+                <div id="login-box">
+                    <input id="uname-box" type="text" placeholder="Username" name="username" value="{{request.form.username}}" autocomplete="off">
+                    <input id="pswrd-box" type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+                </div>
+                <input id="sign-in-button" type="submit" value="Sign In">
+            </form>
+
+            <span id="signup-message">Haven't Created account yet, <a id="signup-link" href="/signup/">Sign Up</a>!</span>
+            <div id="err-msg">
+                {% if error %}
+                    {{error}}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>MemerSala</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/home-styles.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body id="main-body">
+
+        <script src="scripts/main.js"></script>
+        <div id=left-pane>
+            <div id="sub-left-pane">
+                <div id="welcome-text">Welcome <span style="color: rgb(240, 255, 152);font-weight:bolder;">{{ uname }}</span>!</div>
+                <br/><br/>
+                <div id="group-chat"></div>
+                <iframe src="templates/chat-textbox.html" id="fake-reloader" scrolling="no"></iframe>
+
+                <br/><br/>
+                <button id="add-post-button" onclick="makeAddPostVisible()"><strong>New</strong> Post</button>
+
+                <br/><br/>
+                <form action="/logout/" >
+                    <button type="submit" id="logout-button">Log out</button>
+                </form>
+
+            </div>
+        </div>
+        <button id="sliding-menu-toggle" onclick="toggleMenu()">|||</button>
+
+        <div id="content-section">
+            {% if contents != None %}
+            {% for file, posted_at, username, caption in contents %}
+                <div id="unique-post">
+                    <div id="post-head">
+                        <h3><strong>{{ username }}</strong></h3>
+                    </div>
+                    {% if file.endswith('.mp4') or file.endswith('.ogg') %}
+                        <video controls loop id="post-image">
+                            <source src="content/{{ file }}" type="video/mp4">
+                            <source src="content/{{ file }}" type="video/ogg">
+                        </video>
+                    {% else %}
+                        <img src="content/{{ file }}" id="post-image"><br>
+                    {% endif %}
+
+                    <div id="post-bottom">
+                        <small id="date-time">{{ posted_at }}</small><br><br>
+                        <p>{{ caption }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div id="my-modal-post">
+            <div id="my-modal-sub-post">
+                <form action = "/uploader/" method = "POST" enctype = "multipart/form-data">
+                    Choose Meme image: <input type = "file" name = "meme-file" /><br>
+                    Caption: <input type="text" autocomplete="off" name="caption-text"><br>
+                    <button type="submit">Post</button>
+                    <button type="button" onclick="makeModalPostInvisible()">Cancel</button>
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>
