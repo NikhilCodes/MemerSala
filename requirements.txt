@@ -8,9 +8,7 @@ cachetools==3.1.1
 certifi==2019.6.16
 chardet==3.0.4
 Click==7.0
-colorama==0.4.1
 comtypes==1.1.7
-cx-Freeze==5.1.1
 cycler==0.10.0
 decorator==4.4.0
 defusedxml==0.6.0
@@ -18,8 +16,6 @@ Django==2.2.3
 dlib==19.8.1
 docutils==0.15.2
 entrypoints==0.3
-face-recognition==1.2.3
-face-recognition-models==0.3.0
 Flask==1.1.1
 Flask-Login==0.4.1
 gast==0.2.2
@@ -54,10 +50,6 @@ jupyterthemes==0.20.0
 Keras==2.2.4
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
-Kivy==1.11.1
-kivy-deps.glew==0.1.12
-kivy-deps.sdl2==0.1.22
-Kivy-Garden==0.1.4
 kiwisolver==1.1.0
 lazy-object-proxy==1.4.1
 lesscpy==0.13.0
@@ -112,10 +104,8 @@ rsa==4.0
 scikit-image==0.15.0
 scikit-learn==0.21.2
 scipy==1.3.0
-selectivesearch==0.4
 Send2Trash==1.5.0
 six==1.12.0
-SpeechRecognition==3.8.1
 sqlparse==0.3.0
 sympy==1.4
 tensorboard==1.8.0
