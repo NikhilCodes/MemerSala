@@ -67,7 +67,6 @@ networkx==2.3
 notebook==6.0.0
 numba==0.45.1
 numpy==1.16.4
-opencv-python==4.1.0.25
 pandas==0.25.0
 pandocfilters==1.4.2
 parso==0.5.1
@@ -84,12 +83,7 @@ PyAudio==0.2.11
 Pygments==2.4.2
 pyparsing==2.4.0
 pypiwin32==223
-PyQt5==5.11.3
-PyQt5-sip==4.19.18
-pyqt5-tools==5.11.3.1.4
-pyrealsense2==2.24.0.965
 pyrsistent==0.15.3
-python-chess==0.28.2
 python-dateutil==2.8.0
 python-dotenv==0.10.3
 pytz==2019.1
