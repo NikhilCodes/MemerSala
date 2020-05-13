@@ -1,6 +1,7 @@
 from flask import Flask, redirect, request, render_template, url_for, send_from_directory
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from werkzeug.utils import secure_filename
+from passlib.hash import sha512_crypt
 from random import randint
 from time import asctime
 import webbrowser
@@ -46,7 +47,7 @@ def home():
 def login():
     error = None
     if request.method == "POST":
-        if request.form['username'].lower() in database.keys() and database[request.form['username'].lower()] == request.form['password']:
+        if request.form['username'].lower() in database.keys() and sha512_crypt.verify(request.form['password'], database[request.form['username'].lower()]):
             login_user(User(request.form['username']))
             return redirect(url_for('home'))
         else:
@@ -67,7 +68,7 @@ def signup():
             error = "User already Exists!"
         else:
             user_name = request.form['username'].lower()
-            password = request.form['password0']
+            password = sha512_crypt.hash(request.form['password0'])
             database[user_name] = password
             with open('db/db.pickle', 'wb') as f:
                 pickle.dump(database, f)
